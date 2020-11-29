@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-	<div class="col-lg-6">
+	<div class="col-xs-6 col-xs-offset-3">
 		<h3>製作者一覧</h3>
 
 		<!-- <h4><strong><%= link_to "追加", new_creater_registration_path %></strong></h4> -->
@@ -14,7 +14,7 @@
 			<tbody>
 				<tr>
 					<% @creaters.each do |creater| %>
-					<td><%= creater.name %></td>
+					<td><%= link_to creater.name, admins_creater_path(creater.id) %></td>
 					<% end %>
 				</tr>
 			</tbody>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_29_065207) do
+ActiveRecord::Schema.define(version: 2020_11_29_114956) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_065207) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "profile", null: false
-    t.integer "status", default: 0, null: false
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_creaters_on_email", unique: true
