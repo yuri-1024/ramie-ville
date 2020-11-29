@@ -20,6 +20,16 @@ Rails.application.routes.draw do
   	registrations: 'end_users/registrations'
   }
 
+
+    namespace :admins do
+	    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+	    resources :orders, only:[:index, :show, :update]
+	    resources :end_users, only:[:index, :show, :edit, :update]
+	    resources :creaters, only:[:index, :show, :edit, :update]
+	    resources :contacts, only:[:index, :show, :update]
+	    resources :homes, only:[:index]
+    end
+
   
     scope module: :public do
 	  	get 'about' => 'homes#about'

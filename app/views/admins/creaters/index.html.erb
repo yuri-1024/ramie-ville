@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+	<div class="col-lg-6">
+		<h3>製作者一覧</h3>
+
+		<!-- <h4><strong><%= link_to "追加", new_creater_registration_path %></strong></h4> -->
+
+		<table>
+			<thead>
+				<tr>
+					<th>name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<% @creaters.each do |creater| %>
+					<td><%= creater.name %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>

@@ -20,22 +20,22 @@
             <div class="nav">
               <% if admin_signed_in? %>
                 <div class="nav_item, col-xs-1">
-                index
+                  <%= link_to "index", admins_homes_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
-                注文一覧
+                  <%= link_to "注文一覧", admins_orders_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
-                商品一覧
+                  <%= link_to "商品一覧", admins_items_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
-                製作者一覧
+                  <%= link_to "製作者一覧", admins_creaters_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
-                会員一覧
+                  <%= link_to "会員一覧", admins_end_users_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
-                問い合わせ一覧
+                  <%= link_to "お問い合わせ一覧", admins_contacts_path %>
                 </div>
                 <div class="nav_item, col-xs-1">
                   <%= link_to destroy_admin_session_path, :method => :delete do %>
