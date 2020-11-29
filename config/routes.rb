@@ -19,12 +19,13 @@ Rails.application.routes.draw do
   	passwords:     'end_users/passwords',
   	registrations: 'end_users/registrations'
   }
+
   
-  scope module: :public do
-  	get 'about' => 'homes#about'
-  	get 'contact' => 'homes#top'
-  	post 'check' => 'homes#check'
-  	get 'thanks' => 'homes#thanks'
-  end
+    scope module: :public do
+	  	get 'about' => 'homes#about'
+	  	get 'contact' => 'homes#top'
+	  	post 'check' => 'homes#check'
+	  	get 'thanks' => 'homes#thanks'
+    end
 
 end
