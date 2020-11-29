@@ -8,8 +8,46 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header>
+        <div class="title_logo">
+          ramie-ville
+        </div>
+
+        <div class="nav">
+          <% if admin_signed_in? %>
+            <div class="nac_item">
+            トップ　商品一覧　会員一覧　製作者一覧　注文一覧　問い合わせ一覧　ログアウト
+            </div>
+
+          <% elsif creater_signed_in? %>
+            <div class="nac_item">
+            トップ　商品一覧　プロフィール　ログアウト
+            </div>
+
+          <% elsif end_user_signed_in? %>
+            <div class="nac_item">
+            index　about　商品一覧　登録情報　ログアウト
+            </div>
+
+          <% else %>
+            <div class="nac_item">
+            index　about　商品一覧　ログイン　会員登録
+            </div>
+          <% end %>
+
+
+        </div>
+      </header>
+
+      <%= yield %>
+
+      <footer>
+        <p>CopyRight ramie-ville.inc</p>
+        <p>お問い合わせ</p>
+        <p>Instagram　Twitter　Facebook</p>
+      </footer>
+    </div>
   </body>
 </html>
