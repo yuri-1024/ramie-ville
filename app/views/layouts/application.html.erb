@@ -38,7 +38,9 @@
                 問い合わせ一覧
                 </div>
                 <div class="nav_item, col-xs-1">
-                ログアウト
+                  <%= link_to destroy_admin_session_path, :method => :delete do %>
+                    ログアウト
+                  <% end %>
                 </div>
 
               <% elsif creater_signed_in? %>
@@ -55,7 +57,9 @@
                 プロフィール
                 </div>
                 <div class="nav_item, col-xs-2">
-                ログアウト
+                  <%= link_to destroy_creater_session_path, :method => :delete do %>
+                    ログアウト
+                  <% end %>
                 </div>
 
               <% elsif end_user_signed_in? %>
@@ -104,7 +108,8 @@
       <footer>
         <p>CopyRight ramie-ville.inc</p>
         <p>お問い合わせ</p>
-        
+        <%= link_to "管理者ログイン", new_admin_session_path %>
+        <%= link_to "製作者ログイン", new_creater_session_path %>
       </footer>
     </div>
   </body>
