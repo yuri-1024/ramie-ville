@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   }
   
   scope module: :public do
-  	get 'about' => 'public/homes#top'
-  	get 'contact' => 'public/homes#top'
-  	post 'check' => 'public/homes#check'
-  	get 'thanks' => 'public/homes#thanks'
+  	get 'about' => 'homes#about'
+  	get 'contact' => 'homes#top'
+  	post 'check' => 'homes#check'
+  	get 'thanks' => 'homes#thanks'
   end
 
 end
