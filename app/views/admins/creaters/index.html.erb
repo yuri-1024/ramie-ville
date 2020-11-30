@@ -12,8 +12,8 @@
 				</tr>
 			</thead>
 			<tbody>
+				<% @creaters.each do |creater| %>
 				<tr>
-					<% @creaters.each do |creater| %>
 					<td><%= link_to creater.name, admins_creater_path(creater.id) %></td>
 					<% end %>
 				</tr>

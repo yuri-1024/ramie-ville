@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h4><%= 問い合わせ一覧 %></h4>
+			<table class="table table-hover">
+					<tr>
+						<th>日付</th>
+						<th>名前</th>
+						<th>タイトル</th>
+						<th>対応ステータス</th>
+					</tr>
+					<% @contacts.each do |contact| %>
+					<tr>
+						<td>
+							<%= link_to(admins_contact_path(contact.id)) do %>
+							<%= contact.created_at %>
+							<% end %>
+						</td>
+						<td><%= contact.name %></td>
+						<td><%= contact.title %></td>
+						<td><%= contact.status %></td>
+					</tr>
+					<% end %>
+			</table>
+		</div>
+	</div>
+</div>

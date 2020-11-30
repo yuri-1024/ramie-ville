@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<h3>注文一覧</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.each do |order| %>
+				<tr>
+					<td><%= link_to order.create_at, admins_order_path(order.id) %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>
