@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-2"></div>
+	<div class="col-xs-10">
+	  <h4>商品詳細</h4>
+    </div>
+  </div>
+  <div class="row">
+	  <div class="col-xs-2"></div>
+	  <div class="col-xs-3">
+		画像
+	  </div>
+	  <div class="col-xs-6">
+		<p><strong>商品名</strong>               <%= @item.name %></p>
+		<p><strong>商品説明</strong>             <%= @item.introduction %></p>
+		<p><strong>価格（税抜き）</strong>        <%= @item.price %></p>
+		<p><strong>タグ</strong>        </p>
+		<p><strong>製作者</strong>               <%= @item.price %></p>
+		<p><strong>販売ステータス</strong>          <%= @item.status %></p>
+	  </div>
+	  <div class="col-xs-1"></div>
+  </div>
+  <div class="row">
+	  <div class="col-xs-9"></div>
+	  <div class="col-xs-3">
+
+		<%= link_to "編集する", edit_admins_item_path(@item) %>
+	  </div>
+	</div>
+</div>
+
