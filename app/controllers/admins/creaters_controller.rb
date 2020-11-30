@@ -14,7 +14,7 @@ class Admins::CreatersController < ApplicationController
 
 	def update
 		@creater = Creater.find(params[:id])
-		@customer.update(creater_params)
+		@creater.update(creater_params)
 		redirect_to admins_creater_path(@creater.id)
 	end
 
