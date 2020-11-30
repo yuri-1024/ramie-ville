@@ -2,6 +2,7 @@ class Admins::ItemsController < ApplicationController
 
 	def index
 		@items = Item.all
+		@creaters = Creater.all
 	end
 
 	def show

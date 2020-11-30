@@ -45,16 +45,16 @@
 
               <% elsif creater_signed_in? %>
                 <div class="nav_item, col-xs-2 col-xs-offset-1">
-                index
+                <%= link_to "index", creaters_homes_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
-                商品一覧
+                <%= link_to "商品一覧", creaters_items_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
                 注文一覧
                 </div>
                 <div class="nav_item, col-xs-2">
-                プロフィール
+                <%= link_to "プロフィール", creaters_profile_path(current_creater.id) %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to destroy_creater_session_path, :method => :delete do %>

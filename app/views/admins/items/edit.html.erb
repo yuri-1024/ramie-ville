@@ -36,7 +36,7 @@
 	  </div>
 	  <div class="form-group">
 	  	<label class="col-sm-3 control-label">販売ステータス</label>
-	  	<%= f.select :status, Item.is_soldouts.keys{}, {class: 'form-control'} %>
+	  	<%= f.select :status, Item.statuses.keys{}, {class: 'form-control'} %>
 	  </div>
     </div>
 	<div class="row">

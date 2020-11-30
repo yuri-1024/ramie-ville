@@ -22,12 +22,20 @@ Rails.application.routes.draw do
 
 
     namespace :admins do
-	    resources :items, only:[:index, :new, :create, :show, :edit, :update]
+	    resources :items, only:[:index, :new, :show, :edit, :update]
 	    resources :orders, only:[:index, :show, :update]
 	    resources :end_users, only:[:index, :show, :edit, :update]
 	    resources :creaters, only:[:index, :show, :edit, :update]
 	    resources :contacts, only:[:index, :show, :update]
 	    resources :homes, only:[:index]
+    end
+
+    namespace :creaters do
+      resources :items, only:[:index, :new, :create, :show, :edit, :update]
+      resources :order_items, only:[:index, :show, :update]
+      resources :end_users, only:[:show]
+      resources :profiles, only:[:show, :edit, :update]
+      resources :homes, only:[:index]
     end
 
   

@@ -7,7 +7,7 @@
             <label class="col-sm-2 control-label">会員ID</label>
             <%= @end_user.id %>
           </div>
-          <%= form_for(@end_user, url: admin_end_user_path(@end_user.id)) do |f| %>
+          <%= form_for(@end_user, url: admins_end_user_path(@end_user.id)) do |f| %>
           <div class="form-group">
             <label class="col-sm-2 control-label">氏名</label>
                 <%= f.text_field :name_family, class:"col-sm-3" %>
