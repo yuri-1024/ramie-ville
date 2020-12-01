@@ -45,16 +45,16 @@
 
               <% elsif creater_signed_in? %>
                 <div class="nav_item, col-xs-2 col-xs-offset-1">
-                <%= link_to "index", creaters_homes_path %>
+                  <%= link_to "index", creaters_homes_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
-                <%= link_to "商品一覧", creaters_items_path %>
+                  <%= link_to "商品一覧", creaters_items_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
                 注文一覧
                 </div>
                 <div class="nav_item, col-xs-2">
-                <%= link_to "プロフィール", creaters_profile_path(current_creater.id) %>
+                  <%= link_to "プロフィール", creaters_profile_path(current_creater.id) %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to destroy_creater_session_path, :method => :delete do %>
@@ -64,16 +64,16 @@
 
               <% elsif end_user_signed_in? %>
                 <div class="nav_item, col-xs-2 col-xs-offset-1">
-                <%= link_to "index", root_path %>
+                  <%= link_to "index", root_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to "about", about_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
-                <%= link_to "商品一覧", items_path %>
+                  <%= link_to "商品一覧", items_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
-                  会員情報
+                  <%= link_to "会員情報", end_user_path(current_end_user.id) %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to destroy_end_user_session_path, :method => :delete do %>
@@ -83,13 +83,13 @@
 
               <% else %>
                 <div class="nav_item, col-xs-2 col-xs-offset-1">
-                <%= link_to "index", root_path %>
+                  <%= link_to "index", root_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to "about", about_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
-                <%= link_to "商品一覧", items_path %>
+                  <%= link_to "商品一覧", items_path %>
                 </div>
                 <div class="nav_item, col-xs-2">
                   <%= link_to "ログイン", new_end_user_session_path %>

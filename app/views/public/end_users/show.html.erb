@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>会員情報</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>氏名</td>
+            <td><%= current_end_user.name_family %> <%= current_end_user.name_first %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= current_end_user.name_family_kana %> <%= current_end_user.name_first_kana %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= current_end_user.postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= current_end_user.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= current_end_user.tel %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= current_end_user.email %></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+      <%= button_tag( class: 'btn btn-default' ) do %>
+      注文一覧を見る
+      <% end %>
+      <%= link_to "登録情報の変更", edit_end_user_registration_path, class:"btn btn-default" %>
+    </div>
+  </div>
+</div>
+</div>

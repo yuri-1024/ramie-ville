@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 	  	get 'thanks' => 'homes#thanks'
       resources :items, only:[:index, :show]
       resources :carts, only:[:index, :update, :destroy, :create]
+      resources :end_users, only:[:show]
     end
 
 end
