@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>クリエイター検索</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @creaters.each do |creater| %>
+					<tr>
+						<td>
+							<%= link_to(item_path(creater_sort: creater.id)) do %>
+							<%= creater.name %>
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-9">
+			<div class="row">
+				<div class="col-xs-6">
+					<%= attachment_image_tag @item, :image, :fill, 400, 400, format: 'jpeg' %>
+				</div>
+				<div class="col-xs-6">
+					<h2><%= @item.name %></h2>
+					<p><%= @item.body %></p>
+					<p>￥<%= (@item.price * 1.1).floor %>（税込）</p>
+				</div>
+
+
+				<% if end_user_signed_in? && @item.status == "販売中" %>
+
+				<%= form_for(@cart, url:carts_path) do |f| %>
+				<div class="form-group">
+				<%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, { include_blank: '個数を選択'}, { class: '' , required: true } %>
+				<%= f.hidden_field :item_id, :value => @item.id %>
+			    </div>
+				<div class="form-group">
+				<%= f.submit 'カートに入れる', class: 'btn btn-default btn-sm' %>
+				</div>
+				<% end %>
+
+				<% elsif customer_signed_in? && @item.status == "売り切れ" %>
+				sold out
+				<% else %>
+
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,8 +1,13 @@
 class Admins::ItemsController < ApplicationController
 
 	def index
-		@items = Item.all
 		@creaters = Creater.all
+		if params[:creater_sort]
+			@items = Item.where(creater_id: params[:creater_sort])
+			@creater = Creater.find(params[:creater_sort])
+		else
+			@items = Item.all
+		end
 	end
 
 	def show

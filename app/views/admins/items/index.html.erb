@@ -11,7 +11,7 @@
 					<% @creaters.each do |creater| %>
 					<tr>
 						<td>
-							<%= creater.name %>
+							<%= link_to creater.name, admins_items_path(creater_sort: creater.id) %>
 						</td>
 					</tr>
 					<% end %>

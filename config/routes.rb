@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 	  	get 'contact' => 'homes#top'
 	  	post 'check' => 'homes#check'
 	  	get 'thanks' => 'homes#thanks'
+      resources :items, only:[:index, :show]
+      resources :carts, only:[:index, :update, :destroy, :create]
     end
 
 end
