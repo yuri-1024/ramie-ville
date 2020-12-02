@@ -44,7 +44,7 @@
 				</div>
 				<% end %>
 
-				<% elsif customer_signed_in? && @item.status == "売り切れ" %>
+				<% elsif end_user_signed_in? && @item.status == "売り切れ" %>
 				sold out
 				<% else %>
 
