@@ -14,7 +14,9 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= attachment_image_tag @item, :image, :fill, 50, 50, format: 'jpeg'%></td>
+						<td>
+							<%= attachment_image_tag @item, :image, :fill, 50, 50, format: 'jpeg'%>
+							</td>
 						<td><%= @item.name %></td>
 						<td><%= @order_item.price %>円</td>
 						<td><%= @order_item.amount %>個</td>

@@ -1,17 +1,58 @@
 <div class="container">
   <div class="row">
 	<div class="col-lg-12">
-		<h3>本日の注文一覧</h3>
-		<table>
+		<h3>新着注文リスト</h3>
+		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>header</th>
+					<th>注文日</th>
+					<th>アイテム</th>
+					<th>個数</th>
+					<th>注文者</th>
 				</tr>
 			</thead>
 			<tbody>
+				<% @order_item_news.reverse_each do |order_item_new| %>
 				<tr>
-					<td>data</td>
+					<td><%= order_item_new.created_at %></td>
+					<td>
+						<%= attachment_image_tag order_item_new.item, :image, :fill, 50, 50, format: 'jpeg'%>
+						<%= order_item_new.item.name %>
+					</td>
+					<td><%= order_item_new.amount %></td>
+					<td>
+						<%= order_item_new.order.end_user.name_family %>
+						<%= order_item_new.order.end_user.name_first %>
+					</td>
 				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<h3>製作中リスト</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>注文日</th>
+					<th>アイテム</th>
+					<th>個数</th>
+					<th>注文者</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order_item_goings.reverse_each do |order_item_going| %>
+				<tr>
+					<td><%= order_item_going.created_at %></td>
+					<td>
+						<%= attachment_image_tag order_item_going.item, :image, :fill, 50, 50, format: 'jpeg'%>
+						<%= order_item_going.item.name %>
+					</td>
+					<td><%= order_item_going.amount %></td>
+					<td>
+						<%= order_item_going.order.end_user.name_family %>
+						<%= order_item_going.order.end_user.name_first %>
+					</td>
+				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
