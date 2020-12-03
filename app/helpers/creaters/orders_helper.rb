@@ -1,2 +1,0 @@
-module Creaters::OrdersHelper
-end
