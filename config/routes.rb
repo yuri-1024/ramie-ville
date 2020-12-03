@@ -41,9 +41,6 @@ Rails.application.routes.draw do
   
     scope module: :public do
 	  	get 'about' => 'homes#about'
-	  	get 'contact' => 'homes#top'
-	  	post 'check' => 'homes#check'
-	  	get 'thanks' => 'homes#thanks'
       resources :items, only:[:index, :show]
       resources :carts, only:[:index, :update, :destroy, :create]
       resources :end_users, only:[:show]
@@ -52,6 +49,9 @@ Rails.application.routes.draw do
       resources :orders, only:[:index, :new, :create, :show]
       post 'comfirm' => 'orders#comfirm'
       get 'complete' => 'orders#complete'
+      resources :contacts, only:[:new, :create]
+      post 'check' => 'contacts#check'
+      get 'thanks' => 'contacts#thanks'
     end
 
 end

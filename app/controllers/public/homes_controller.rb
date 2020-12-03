@@ -6,13 +6,4 @@ class Public::HomesController < ApplicationController
 	def about
 	end
 
-	def contact
-	end
-
-	def check
-	end
-
-	def thanks
-	end
-
 end
