@@ -6,10 +6,12 @@
 			<p>タイトル</p>
 			<%= @contact.title %>
 			<p>問い合わせ内容</p>
-			<%= @contact.title %>
+			<%= simple_format(@contact.body) %>
 			<p>対応ステータス</p>
-			<%= @contact.status %>
-			<p><%= link_to "edit", edit_admins_creater_path %></p>
+			<%= form_for @contact, url:admins_contact_path do |f| %>
+			<%= f.select :status, Contact.statuses.keys{} %>
+			<%= f.submit '更新', class: 'btn btn-primary btn-xs' %>
+			<% end %>
 		</div>
 	</div>
 </div>

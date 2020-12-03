@@ -9,7 +9,7 @@
 						<th>タイトル</th>
 						<th>対応ステータス</th>
 					</tr>
-					<% @contacts.each do |contact| %>
+					<% @contacts.reverse_each do |contact| %>
 					<tr>
 						<td>
 							<%= link_to(admins_contact_path(contact.id)) do %>

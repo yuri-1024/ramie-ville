@@ -42,5 +42,4 @@ class Public::OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:end_user_id, :postal_code, :address, :name, :cost, :charge, :payment, :status)
 	end
-
 end

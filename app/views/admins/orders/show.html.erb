@@ -7,7 +7,7 @@
 			<strong>購入者</strong>
 		</div>
 		<div class="col-lg-10">
-
+			<%= @order.end_user.name_family %><%= @order.end_user.name_first %>
 		</div>
 		<div class="col-lg-2">
 			<strong>配送先</strong>
@@ -22,11 +22,15 @@
 		<div class="col-lg-10">
 			<%= @order.payment %>
 		</div>
-			    <strong>注文ステータス</strong>
-				<%= form_for @order, url:admin_order_path do |f| %>
+		<div class="col-lg-2">
+			<strong>注文ステータス</strong>
+		</div>
+		<div class="col-lg-10">
+				<%= form_for @order, url:admins_order_path do |f| %>
 				<%= f.select :status, Order.statuses.keys{} %>
 				<%= f.submit '更新', class: 'btn btn-primary btn-xs' %>
 				<% end %>
+		</div>
 		</div>
 
 		<br>
@@ -47,19 +51,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @order_lists.each do |order_list| %>
+					<% @order_items.each do |order_item| %>
 					<tr>
-						<td><%= order_list.sweet.name %></td>
-						<td><%= order_list.price %>円</td>
-						<td><%= order_list.amount %>個</td>
+						<td><%= order_item.item.name %></td>
+						<td><%= order_item.price %>円</td>
+						<td><%= order_item.amount %>個</td>
 						<td>
-							<% sub_total = order_list.price * order_list.amount %>
+							<% sub_total = order_item.price * order_item.amount %>
 							<% @sum += sub_total %>
 							<%= sub_total %>円
 						</td>
 						<td>
-							<%= form_for order_list, url:admin_order_list_path do |f| %>
-							<%= f.select :creat_status, OrderList.creat_statuses.keys{} %>
+							<%= form_for order_item, url:admins_order_item_path do |f| %>
+							<%= f.select :creat_status, OrderItem.creat_statuses.keys{} %>
 							<%= f.submit '更新', class: 'btn btn-primary btn-xs' %>
 							<% end %>
 						</td>
@@ -69,10 +73,6 @@
 			</table>
 		</div>
 		<div class="col-lg-3 col-lg-offset-1">
-			<br>
-			<br>
-			<br>
-
 			<table class="table table-bordered">
 				<tr>
 					<th>商品合計</th><td><%= @sum %>円</td>

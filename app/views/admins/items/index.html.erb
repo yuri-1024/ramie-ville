@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<table class="table table-bordered">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>製作者一覧</th>
@@ -30,7 +30,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<% @items.each do |item| %>
+						<% @items.reverse_each do |item| %>
 						<tr>
 							<td><%= link_to item.name, admins_item_path(item.id) %></td>
 							<td><%= item.creater.name %></td>

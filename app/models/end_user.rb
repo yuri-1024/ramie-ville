@@ -4,5 +4,6 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    has_many :carts
+    has_many :carts, dependent: :destroy
+    has_many :orders, dependent: :destroy
 end
