@@ -1,34 +1,72 @@
 <div class="container">
   <div class="row">
+
 	<div class="col-lg-6">
 		<h3>新規問い合わせ</h3>
-
-		<table>
+		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>header</th>
+					<th>日時</th>
+					<th>名前</th>
+					<th>タイトル</th>
 				</tr>
 			</thead>
 			<tbody>
+				<% @contacts.reverse_each do |contact| %>
 				<tr>
-					<td>data</td>
+					<td><%= contact.created_at %></td>
+					<td><%= contact.name %></td>
+					<td><%= link_to contact.title, admins_contact_path(contact.id) %></td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
-	<div class="col-lg-6">
-		<h3>本日の注文一覧</h3>
 
-		<table>
+	<div class="col-lg-3">
+		<h3>新規注文一覧</h3>
+		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>header</th>
+					<th>リスト</th>
 				</tr>
 			</thead>
 			<tbody>
+				<% @order_news.reverse_each do |order_new| %>
 				<tr>
-					<td>data</td>
+					<td>
+						<%= link_to(admins_order_path(order_new.id)) do %>
+						<%= order_new.created_at %>
+						<%= order_new.end_user.name_family %>
+						<%= order_new.end_user.name_first %>
+						<% end %>
+					</td>
 				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="col-lg-3">
+		<h3>発送待ち一覧</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>リスト</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order_ends.reverse_each do |order_end| %>
+				<tr>
+					<td>
+						<%= link_to(admins_order_path(order_end.id)) do %>
+						<%= order_end.created_at %>
+						<%= order_end.end_user.name_family %>
+						<%= order_end.end_user.name_first %>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
