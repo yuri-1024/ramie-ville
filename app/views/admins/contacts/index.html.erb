@@ -13,7 +13,7 @@
 					<tr>
 						<td>
 							<%= link_to(admins_contact_path(contact.id)) do %>
-							<%= contact.created_at %>
+							<%= l contact.created_at %>
 							<% end %>
 						</td>
 						<td><%= contact.name %></td>

@@ -14,7 +14,7 @@
 			<tbody>
 				<% @contacts.reverse_each do |contact| %>
 				<tr>
-					<td><%= contact.created_at %></td>
+					<td><%= l contact.created_at %></td>
 					<td><%= contact.name %></td>
 					<td><%= link_to contact.title, admins_contact_path(contact.id) %></td>
 				</tr>
@@ -36,7 +36,7 @@
 				<tr>
 					<td>
 						<%= link_to(admins_order_path(order_new.id)) do %>
-						<%= order_new.created_at %>
+						<%= l order_new.created_at %>　
 						<%= order_new.end_user.name_family %>
 						<%= order_new.end_user.name_first %>
 						<% end %>
@@ -60,7 +60,7 @@
 				<tr>
 					<td>
 						<%= link_to(admins_order_path(order_end.id)) do %>
-						<%= order_end.created_at %>
+						<%= l order_end.created_at %>　
 						<%= order_end.end_user.name_family %>
 						<%= order_end.end_user.name_first %>
 						<% end %>

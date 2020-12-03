@@ -14,10 +14,12 @@
 			<tbody>
 				<% @order_item_news.reverse_each do |order_item_new| %>
 				<tr>
-					<td><%= order_item_new.created_at %></td>
+					<td><%= l order_item_new.created_at %></td>
 					<td>
+						<%= link_to(creaters_order_item_path(order_item_new.id)) do %>
 						<%= attachment_image_tag order_item_new.item, :image, :fill, 50, 50, format: 'jpeg'%>
 						<%= order_item_new.item.name %>
+						<% end %>
 					</td>
 					<td><%= order_item_new.amount %></td>
 					<td>
@@ -41,10 +43,12 @@
 			<tbody>
 				<% @order_item_goings.reverse_each do |order_item_going| %>
 				<tr>
-					<td><%= order_item_going.created_at %></td>
+					<td><%= l order_item_going.created_at %></td>
 					<td>
+						<%= link_to(creaters_order_item_path(order_item_going.id)) do %>
 						<%= attachment_image_tag order_item_going.item, :image, :fill, 50, 50, format: 'jpeg'%>
 						<%= order_item_going.item.name %>
+						<% end %>
 					</td>
 					<td><%= order_item_going.amount %></td>
 					<td>

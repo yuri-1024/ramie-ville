@@ -61,12 +61,7 @@
 							<% @sum += sub_total %>
 							<%= sub_total %>円
 						</td>
-						<td>
-							<%= form_for order_item, url:admins_order_item_path do |f| %>
-							<%= f.select :creat_status, OrderItem.creat_statuses.keys{} %>
-							<%= f.submit '更新', class: 'btn btn-primary btn-xs' %>
-							<% end %>
-						</td>
+						<td><%= order_item.creat_status %></td>
 					</tr>
 					<% end %>
 				</tbody>

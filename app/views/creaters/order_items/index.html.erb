@@ -14,7 +14,11 @@
 			<tbody>
 				<% @order_items.reverse_each do |order_item| %>
 				<tr>
-					<td><%= link_to order_item.created_at, creaters_order_item_path(order_item.id) %></td>
+					<td>
+						<%= link_to(creaters_order_item_path(order_item.id)) do %>
+						<% l order_item.created_at %>
+						<% end %>
+					</td>
 					<td><%= order_item.item.name %></td>
 					<td>
 						<%= order_item.order.end_user.name_family %>

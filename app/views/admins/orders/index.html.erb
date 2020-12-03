@@ -11,7 +11,7 @@
 			<tbody>
 				<% @orders.reverse_each do |order| %>
 				<tr>
-					<td><%= link_to order.created_at, admins_order_path(order.id) %></td>
+					<td><%= l link_to order.created_at, admins_order_path(order.id) %></td>
 				</tr>
 				<% end %>
 			</tbody>
