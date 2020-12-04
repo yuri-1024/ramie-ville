@@ -22,11 +22,6 @@
 	margin: 0;
 }
 
-
-.container {
-	max-width: 3000px;
-}
-
 header {
 	width: 100%;
 	padding: 15px 0;
@@ -34,8 +29,25 @@ header {
 	background-color: #FBF5EF;
 }
 
+#container{
+  height: 500px;
+}
 
-
+.image1 {
+background-image: url(image1.jpg);
+}
+.image2 {
+background-image: url(image2.jpg);
+}
+.image3 {
+background-image: url(image3.jpg);
+}
+.image4 {
+background-image: url(image4.jpg);
+}
+.image5 {
+background-image: url(image5.jpg);
+}
 
 
 .weapper {
