@@ -11,7 +11,7 @@
 					<% @creaters.each do |creater| %>
 					<tr>
 						<td>
-							<%= link_to(item_path(creater_sort: creater.id)) do %>
+							<%= link_to(items_path(creater_sort: creater.id)) do %>
 							<%= creater.name %>
 							<% end %>
 						</td>
@@ -29,6 +29,16 @@
 					<h2><%= @item.name %></h2>
 					<p><%= @item.body %></p>
 					<p>￥<%= (@item.price * 1.1).floor %>（税込）</p>
+					<% @item.tag_list.each do |tag| %>
+						<%= link_to(items_path(tag_name: tag)) do %>
+						<%= tag %>
+						<% end %>
+					<% end %>
+					<p>製作者
+						<%= link_to(items_path(creater_sort: @item.creater.id)) do %>
+						<%= @item.creater.name %>
+						<% end %>
+					</p>
 				</div>
 
 

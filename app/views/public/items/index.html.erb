@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-lg-2">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>クリエイター検索</th>
+						<th>製作者一覧</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -18,7 +18,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-lg-9">
+		<div class="col-lg-8">
 		  <div class="row">
 			<h2><%= @item_index_title %></h2>
 			<% @items.each do |item| %>
@@ -42,5 +42,27 @@
 			<% end %>
 		  </div>
 	    </div>
+	    <div class="col-lg-2">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>タグ一覧</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+						<% @tags.each do |tag| %>
+							<%= link_to(items_path(tag_name: tag.name)) do %>
+							<%= button_tag( class: 'btn btn-default btn-xs' ) do %>
+							<%= tag %>
+							<% end %>
+							<% end %>
+						<% end %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

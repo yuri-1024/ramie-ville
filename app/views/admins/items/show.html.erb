@@ -12,8 +12,12 @@
 		<p><strong>商品名</strong>               <%= @item.name %></p>
 		<p><strong>商品説明</strong>             <%= @item.body %></p>
 		<p><strong>価格（税抜き）</strong>        <%= @item.price %></p>
-		<p><strong>タグ</strong>        </p>
-		<p><strong>製作者</strong>               <%= @item.price %></p>
+		<p><strong>タグ</strong>       
+		<% @item.tag_list.each do |tag| %>
+		<span class="btn btn-default btn-xs"><%= tag %></span>
+		<% end %>
+		</p>
+		<p><strong>製作者</strong>               <%= @item.creater.name %></p>
 		<p><strong>販売ステータス</strong>          <%= @item.status %></p>
 	  </div>
 	  <div class="col-xs-1"></div>
@@ -22,7 +26,7 @@
 	  <div class="col-xs-9"></div>
 	  <div class="col-xs-3">
 
-		<%= link_to "編集する", edit_admins_item_path(@item) %>
+		<%= link_to "編集する", edit_admins_item_path(@item), class:"btn btn-default" %>
 	  </div>
 	</div>
 </div>

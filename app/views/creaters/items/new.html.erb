@@ -24,15 +24,17 @@
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">商品説明</label>
-				<p><%= f.text_area :body, class:"col-sm-9" %></p>
+				<%= f.text_area :body, class:"col-sm-9" %>
 			</div>
 			<div class="form-group">
-			    <label class="col-sm-3 control-label">tag</label>
-
+			    <label class="col-sm-3 control-label">タグ</label>
+			    <%= f.text_area :tag_list, value: @item.tag_list, class:"col-sm-9" %>
 			</div>
+			<div class="col-sm-9 col-sm-offset-3">（半角スペースで区切れます）</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">価格</label>
-				<%= f.text_field :price, class:"col-sm-9" %>円
+				<%= f.text_field :price, class:"col-sm-8" %>
+				<div class="col-sm-1">円</div>
 			</div>
 			<div class="form-group">
 			  	<label class="col-sm-3 control-label">販売ステータス</label>

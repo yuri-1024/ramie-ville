@@ -31,6 +31,6 @@ class Creaters::ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:name, :body, :creater_id, :price, :status, :image)
+		params.require(:item).permit(:name, :body, :creater_id, :price, :status, :image, :tag_list)
 	end
 end
