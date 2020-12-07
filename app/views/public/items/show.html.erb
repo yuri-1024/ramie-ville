@@ -41,22 +41,12 @@
 					</p>
 				</div>
 
-				<!-- イイネボタン -->
-				<div>
-					<% if end_user_signed_in? && @item.favorited_by?(current_end_user) %>
-					    <%= link_to item_favorites_path(@item), method: :delete do %>
-					    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
-					    <%= @item.favorites.count %> いいね
-					    <% end %>
-					<% elsif end_user_signed_in? %>
-					    <%= link_to item_favorites_path(@item), method: :post do %>
-					    	<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: lightgray;"></span>
-					    <%= @item.favorites.count %> いいね
-					    <% end %>
-					<% else %>
-						<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
-					    <%= @item.favorites.count %> いいね
-					<% end %>
+				<!-- いいねボタン -->
+
+				<div id="favorite_button_<%= @item.id %>">
+
+					<%= render partial: 'public/favorites/favorite', locals: { item: @item } %>
+
 				</div>
 
 				<!-- 購入ボタン -->
