@@ -11,7 +11,18 @@ class Creaters::OrderItemsController < ApplicationController
 
 	def update
 		@order_item = OrderItem.find(params[:id])
+		@order = @order_item.order
 		@order_item.update(order_item_params)
+
+		if @order_item.creat_status == "製作中"
+			new_status = "製作中"
+			@order.update_attribute(:status, new_status)
+		elsif @order.order_items.count == @order.order_items.where(creat_status: "製作完了").count
+			new_status = "発送準備中"
+			@order.update_attribute(:status, new_status)
+		else
+		end
+
 		redirect_to creaters_order_items_path
 	end
 

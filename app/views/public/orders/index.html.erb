@@ -6,12 +6,18 @@
 			<thead>
 				<tr>
 					<th>注文日</th>
+					<th>宛先名</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @orders.reverse_each do |order| %>
 				<tr>
-					<td><%= link_to order.created_at, order_path(order.id) %></td>
+					<td>
+						<%= link_to(order_path(order.id)) do %>
+						<%= l order.created_at %>
+						<% end %>
+					</td>
+					<td><%= order.name %></td>
 				</tr>
 				<% end %>
 			</tbody>

@@ -74,9 +74,7 @@
 				<% end %>
 				<% end %>　
 
-				<%= button_tag( class: 'btn btn-default' ) do %>
-				注文履歴一覧をみる
-				<% end %>
+				<%= link_to "注文一覧", admins_orders_path(end_user_sort: @end_user.id), class:"btn btn-default" %>
 
 		</div>
 	</div>
