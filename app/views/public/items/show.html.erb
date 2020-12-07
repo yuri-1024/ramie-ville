@@ -41,25 +41,42 @@
 					</p>
 				</div>
 
+				<!-- イイネボタン -->
+				<div>
+					<% if end_user_signed_in? && @item.favorited_by?(current_end_user) %>
+					    <%= link_to item_favorites_path(@item), method: :delete do %>
+					    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+					    <%= @item.favorites.count %> いいね
+					    <% end %>
+					<% elsif end_user_signed_in? %>
+					    <%= link_to item_favorites_path(@item), method: :post do %>
+					    	<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: lightgray;"></span>
+					    <%= @item.favorites.count %> いいね
+					    <% end %>
+					<% else %>
+						<span class="glyphicon glyphicon-heart" aria-hidden="true" style="color: red;"></span>
+					    <%= @item.favorites.count %> いいね
+					<% end %>
+				</div>
 
+				<!-- 購入ボタン -->
 				<% if end_user_signed_in? && @item.status == "販売中" %>
 
-				<%= form_for(@cart, url:carts_path) do |f| %>
-				<div class="form-group">
-				<%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, { include_blank: '個数を選択'}, { class: '' , required: true } %>
-				<%= f.hidden_field :item_id, :value => @item.id %>
-			    </div>
-				<div class="form-group">
-				<%= f.submit 'カートに入れる', class: 'btn btn-default btn-sm' %>
-				</div>
-				<% end %>
+					<%= form_for(@cart, url:carts_path) do |f| %>
+					<div class="form-group">
+						<%= f.select :amount, {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5}, { include_blank: '個数を選択'}, { class: '' , required: true } %>
+						<%= f.hidden_field :item_id, :value => @item.id %>
+				    </div>
+					<div class="form-group">
+						<%= f.submit 'カートに入れる', class: 'btn btn-default btn-sm' %>
+					</div>
+					<% end %>
 
 				<% elsif end_user_signed_in? && @item.status == "売り切れ" %>
-				sold out
+					sold out
 				<% else %>
 
 				<% end %>
-
 			</div>
 		</div>
 	</div>

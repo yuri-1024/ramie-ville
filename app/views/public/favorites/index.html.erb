@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>お気に入り一覧</h4>
+      <% @favorites.each do |favorite| %>
+      <table class="col-xs-3">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to(item_path(favorite.item.id)) do %>
+              <%= attachment_image_tag favorite.item, :image, :fill, 150, 150, format: 'jpeg' %>
+              <% end %>
+              </td>
+          </tr>
+          <tr>
+            <td><%= favorite.item.name %></td>
+          </tr>
+          <tr>
+            <td>￥<%= favorite.item.price %>(税抜き)</td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

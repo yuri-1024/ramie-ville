@@ -38,11 +38,10 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-      <%= button_tag( class: 'btn btn-default' ) do %>
-      注文一覧を見る
-      <% end %>
+      <%= link_to "注文一覧", orders_path, class:"btn btn-default" %>
       <%= link_to "登録情報の変更", edit_end_user_registration_path, class:"btn btn-default" %>
+      <%= link_to "お気に入り", favorites_path, class:"btn btn-default" %>
+    </div>
     </div>
   </div>
-</div>
 </div>

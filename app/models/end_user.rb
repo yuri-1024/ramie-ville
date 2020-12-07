@@ -6,4 +6,6 @@ class EndUser < ApplicationRecord
 
     has_many :carts, dependent: :destroy
     has_many :orders, dependent: :destroy
+    has_many :favorites, dependent: :destroy
+
 end

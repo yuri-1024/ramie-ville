@@ -42,8 +42,10 @@ Rails.application.routes.draw do
   
     scope module: :public do
 	  	get 'about' => 'homes#about'
-      resources :items, only:[:index, :show]
-      resources :carts, only:[:index, :update, :destroy, :create]
+      resources :items, only:[:index, :show] do
+        resource :favorites, only:[:create, :destroy]
+      end
+      resources :favorites, only:[:index]
       resources :end_users, only:[:show]
       resources :carts, only:[:index, :update, :destroy, :create]
       delete 'destroy_all' => 'carts#destroy_all'
