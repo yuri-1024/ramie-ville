@@ -1,5 +1,7 @@
 class Creaters::ProfilesController < ApplicationController
 
+	before_action :authenticate_creater!
+
 	def show
 	end
 

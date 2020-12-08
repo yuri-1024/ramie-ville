@@ -1,5 +1,7 @@
 class Creaters::ItemsController < ApplicationController
 
+	before_action :authenticate_creater!
+	
 	def index
 		@items = Item.where(creater_id: current_creater.id)
 	end
@@ -27,6 +29,8 @@ class Creaters::ItemsController < ApplicationController
 		@item.update(item_params)
 		redirect_to creaters_item_path(@item.id)
 	end
+
+end
 
 	private
 

@@ -1,7 +1,6 @@
 class Public::ItemsController < ApplicationController
 
-	def about
-	end
+	before_action :authenticate_end_user!
 
 	def index
 		@creaters = Creater.all

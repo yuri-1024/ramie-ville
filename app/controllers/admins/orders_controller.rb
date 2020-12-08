@@ -1,5 +1,7 @@
 class Admins::OrdersController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def index
 		if params[:end_user_sort]
 			@orders = Order.where(end_user_id: params[:end_user_sort])

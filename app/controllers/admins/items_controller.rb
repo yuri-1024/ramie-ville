@@ -1,5 +1,7 @@
 class Admins::ItemsController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def index
 		@creaters = Creater.all
 		if params[:creater_sort]

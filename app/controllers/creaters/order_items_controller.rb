@@ -1,5 +1,7 @@
 class Creaters::OrderItemsController < ApplicationController
 
+	before_action :authenticate_creater!
+
 	def index
 		@order_items = OrderItem.all
 	end

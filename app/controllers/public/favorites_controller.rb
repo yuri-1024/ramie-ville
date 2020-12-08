@@ -1,5 +1,7 @@
 class Public::FavoritesController < ApplicationController
 
+	before_action :authenticate_end_user!
+
 	def index
 		@favorites = Favorite.all
 	end

@@ -1,7 +1,9 @@
 class Public::OrdersController < ApplicationController
 
+	before_action :authenticate_end_user!
+
 	def index
-		@orders = Order.all
+		@orders = Order.where(end_user_id: current_end_user.id)
 	end
 
 	def show
@@ -45,6 +47,8 @@ class Public::OrdersController < ApplicationController
 		@carts.destroy_all
 		redirect_to complete_path
 	end
+
+end
 
 	private
 

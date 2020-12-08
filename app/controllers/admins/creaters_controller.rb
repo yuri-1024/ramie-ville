@@ -1,5 +1,7 @@
 class Admins::CreatersController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def index
 		@creaters = Creater.all
 	end
