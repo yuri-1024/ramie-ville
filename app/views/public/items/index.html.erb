@@ -21,6 +21,14 @@
 		<div class="col-lg-8">
 		  <div class="row">
 			<h2><%= @item_index_title %></h2>
+
+			<!-- 製作者一覧をクリックしたときに表示する製作者プロフ -->
+			<div class="item_index_creater_profile">
+			<P><%= @item_index_creater_name %></P>
+			<p><%= simple_format(@item_index_creater_profile) %></p>
+			</div>
+			<!-- end -->
+
 			<% @items.each do |item| %>
 				<table class="col-xs-3">
 					<tbody>

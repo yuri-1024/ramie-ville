@@ -7,6 +7,8 @@ class Public::ItemsController < ApplicationController
 			@items = Item.where(creater_id: params[:creater_sort]).page(params[:page]).reverse_order
 			@creater = Creater.find(params[:creater_sort])
 			@item_index_title = @creater.name + "の作品一覧"
+			@item_index_creater_name = @creater.name + "のプロフィール"
+			@item_index_creater_profile = @creater.profile
 
 		elsif params[:tag_name]
 			@items = Item.tagged_with("#{params[:tag_name]}").page(params[:page]).reverse_order
