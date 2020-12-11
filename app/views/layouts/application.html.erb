@@ -12,7 +12,7 @@
     <div class="wrapper">
       <header>
         <div class="title_logo">
-          ramie-ville
+          <span><%= image_tag 'ramie-ville-logo.png', size: '200x70' %></span>
         </div>
 
         <div class="container">
@@ -109,11 +109,19 @@
       <%= yield %>
 
       <footer>
-        <p>CopyRight ramie-ville.inc</p>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"></p>
+    <p>CopyRight ramie-ville.inc</p>
         <p><%= link_to "お問い合わせ", new_contact_path %></p>
         <%= link_to "管理者ログイン", new_admin_session_path %>
         <%= link_to "製作者ログイン", new_creater_session_path %>
-      </footer>
+  </div>
+</footer>
+
     </div>
   </body>
 </html>

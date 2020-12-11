@@ -1,7 +1,5 @@
 class Public::ItemsController < ApplicationController
 
-	before_action :authenticate_end_user!
-
 	def index
 		@creaters = Creater.all
 		@tags = Item.tag_counts_on(:tags)
