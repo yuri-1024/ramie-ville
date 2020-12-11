@@ -30,8 +30,6 @@ class Creaters::ItemsController < ApplicationController
 		redirect_to creaters_item_path(@item.id)
 	end
 
-end
-
 	private
 
 	def item_params
