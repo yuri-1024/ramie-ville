@@ -48,8 +48,6 @@ class Public::OrdersController < ApplicationController
 		redirect_to complete_path
 	end
 
-end
-
 	private
 
 	def order_params
