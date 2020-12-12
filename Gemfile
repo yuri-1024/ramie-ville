@@ -68,3 +68,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem 'acts-as-taggable-on', '~> 6.0'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
