@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="form-horizontal" role="form">
+				<h3>プロフィール編集</h3>
+				<br>
+				<div class="row">
+				<%= form_for(@creater, url:admins_creater_path(@creater.id)) do |f| %>
+				<div class="form-group">
+          <label class="col-sm-3 control-label">名前</label>
+					<%= f.text_field :name, class:"col-sm-9" %>
+				</div>
+				<div class="form-group">
+          <label class="col-sm-3 control-label">profile</label>
+					<%= f.text_area :profile, class:"col-sm-9" %>
+				</div>
+				<div class="form-group">
+          <label class="col-sm-3 control-label">ステータス</label>
+					<%= f.select :status, Creater.statuses.keys{}, {class: 'form-control'} %>
+				</div>
+					<br>
+				<div class="form-group">
+          <%= f.submit "更新", class:"btn btn-default, col-sm-2 col-xs-offset-5" %>
+        </div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

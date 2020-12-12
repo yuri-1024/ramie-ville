@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<h3>お問い合わせ内容確認</h3>
+			<div>名前</div>
+			<div><%= @contact.name %></div>
+			<div>メールアドレス</div>
+			<div><%= @contact.email %></div>
+			<div>タイトル</div>
+			<div><%= @contact.title %></div>
+			<div>内容</div>
+			<div><%= simple_format(@contact.body) %></div>
+			<%= form_with model: @contact, url: contacts_path, method: :post, local: true do |f| %>
+			<%= f.hidden_field :name, :value => @contact.name %>
+			<%= f.hidden_field :email, :value => @contact.email %>
+			<%= f.hidden_field :title, :value => @contact.title %>
+			<%= f.hidden_field :body, :value => @contact.body %>
+			<%= f.submit '送信', class: 'btn btn-default btn-sm' %>
+			<% end %>
+		</div>
+  </div>
+</div>

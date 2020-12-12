@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h3>プロフィール詳細</h3>
+			<br>
+			<br>
+			<table class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<td><%= @creater.id %></td>
+				</tr>
+				<tr>
+					<th>名前</th>
+					<td><%= @creater.name %></td>
+				</tr>
+				<tr>
+					<th>プロフィール</th>
+					<td><%= simple_format(@creater.profile) %></td>
+				</tr>
+				<tr>
+					<th>ステータス</th>
+					<td><%= @creater.status %></td>
+				</tr>
+			</table>
+			
+			<p><%= link_to "編集", edit_admins_creater_path, class:"btn btn-default" %></p>
+		</div>
+	</div>
+</div>

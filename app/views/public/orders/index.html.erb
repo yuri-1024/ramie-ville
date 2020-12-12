@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<h3>注文一覧</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>注文日</th>
+					<th>宛先名</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.reverse_each do |order| %>
+				<tr>
+					<td>
+						<%= link_to(order_path(order.id)) do %>
+						<%= l order.created_at %>
+						<% end %>
+					</td>
+					<td><%= order.name %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>

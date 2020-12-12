@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<h3><%= @orders_title %></h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>注文者</th>
+					<th>ステータス</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @orders.reverse_each do |order| %>
+				<tr>
+					<td>
+						<%= link_to(admins_order_path(order.id)) do %>
+						<%= l order.created_at %>
+						<% end %>
+					</td>
+					<td>
+						<%= order.end_user.name_family %>
+						<%= order.end_user.name_first %>
+					</td>
+					<td><%= order.status %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>

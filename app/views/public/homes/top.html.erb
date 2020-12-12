@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-10 col-xs-offset-1">
+	  <div id="container">
+			<div id="theTarget">
+				<div class="image1"></div>
+				<div class="image2"></div>
+				<div class="image3"></div>
+				<div class="image4"></div>
+				<div class="image5"></div>
+			</div>
+		</div>
+	  <div class="top_introduction">
+	  	<h3>ようこそRamie-Villeへ！</h3>
+	  	<p>このサイトは架空の村の伝統工芸品：麻織物を紹介、販売するサイトです</p>
+	  	<p>作品の購入には会員登録が必要となります。</p>
+	  </div>
+	  <h3>新着商品</h3>
+	  <div>
+	  	<% @items.reverse_each do |item| %>
+				<table class="col-xs-3">
+					<tbody>
+						<tr>
+							<td>
+								<%= link_to(item_path(item.id)) do %>
+							     <%= attachment_image_tag item, :image, :fill, 150, 150, format: 'jpeg' %>
+							     <% end %>
+						    </td>
+						</tr>
+						<tr>
+							<td><%= item.name %></td>
+						</tr>
+						<tr>
+							<td>￥<%= item.price %></td>
+						</tr>
+					</tbody>
+				</table>
+			<% end %>
+	  </div>
+	</div>
+  </div>
+</div>

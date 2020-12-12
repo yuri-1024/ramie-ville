@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>製作者一覧</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @creaters.each do |creater| %>
+					<tr>
+						<td>
+							<%= link_to creater.name, admins_items_path(creater_sort: creater.id) %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-9">
+		    <div class="row">
+				<h2><%= @item_index_title %></h2>
+				<table class="table table-hover">					<thead>
+						<tr>
+							<th>作品名</th>
+							<th>製作者</th>
+							<th>価格</th>
+							<th>販売ステータス</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @items.reverse_each do |item| %>
+						<tr>
+							<td><%= link_to item.name, admins_item_path(item.id) %></td>
+							<td><%= item.creater.name %></td>
+							<td><%= item.price %></td>
+							<td><%= item.status %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+		    </div>
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<h3>製作者一覧</h3>
+
+		<%= link_to "製作者追加", new_creater_registration_path %>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @creaters.each do |creater| %>
+				<tr>
+					<td><%= link_to creater.name, admins_creater_path(creater.id) %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+  </div>
+</div>
