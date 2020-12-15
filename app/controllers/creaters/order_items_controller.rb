@@ -3,7 +3,7 @@ class Creaters::OrderItemsController < ApplicationController
 	before_action :authenticate_creater!
 
 	def index
-		@order_items = OrderItem.all
+		@order_items = OrderItem.joins(:item).select("order_items.*, items.*").where(items: {creater_id: current_creater.id}).where(creat_status: "未着手")
 	end
 
 	def show
